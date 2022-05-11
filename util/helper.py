@@ -18,7 +18,9 @@ def load_logo_images():
 
 def show_current_image():
     cur_Image=Image.open(os.path.join(module_path, "images","quiz", str(st.session_state.quiz_position)+".jpeg"))
+    st.write(f'Bild Nr {st.session_state.quiz_position}/20');
     st.image(cur_Image,width=700)
+    st.text('Quelle: https://www.whichfaceisreal.com/index.php')
 
 def is_answer_correct(current_image_is_real):
     if (solutionList[st.session_state.quiz_position]==r and current_image_is_real) or (solutionList[st.session_state.quiz_position]==f and not current_image_is_real):

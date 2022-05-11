@@ -46,7 +46,7 @@ class Main:
                     question_frame.Question()
                 def quitQuiz():
                     st.session_state.quiz_running=False
-                st.button("Quiz abbrechen",on_click=quitQuiz())
+                st.button("Quiz abbrechen",on_click=quitQuiz)
         else:
             highscore_frame.Highscore()
 
