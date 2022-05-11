@@ -1,9 +1,15 @@
 from util.helper import load_logo_images
+from menu import highscore_frame,question_frame,question_finished_frame,quiz_finished_frame
 import streamlit as st
 
 class Main:
     def __init__(self):
+        st.set_page_config(layout="wide")
+        if "quiz_running" not in st.session_state:
+            st.session_state.quiz_running=False
         self.sidebar()
+        self.quiz()
+
 
     def sidebar(self):
         st.sidebar.latex("\\text{\large{Tag der Mathematik - 2022}}")
@@ -28,5 +34,20 @@ class Main:
         colesf, colbm = st.sidebar.columns(2)
         colesf.image(eu_esf)
         colbm.image(mv_bm)
+
+    def quiz(self):
+        if st.session_state.quiz_running:
+            if st.session_state.quiz_position>=21:
+                quiz_finished_frame.QuizFinished()
+            else:
+                if st.session_state.quiz_current_position_finished:
+                    question_finished_frame.QuestionFinished()
+                else:
+                    question_frame.Question()
+                def quitQuiz():
+                    st.session_state.quiz_running=False
+                st.button("Quiz abbrechen",on_click=quitQuiz())
+        else:
+            highscore_frame.Highscore()
 
 
