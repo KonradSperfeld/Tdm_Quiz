@@ -21,7 +21,8 @@ def load_logo_images():
     eu_fonds = Image.open(os.path.join(module_path, "images", "logos", "logo_EU_Fonds.png"))
     eu_esf = Image.open(os.path.join(module_path, "images", "logos", "logo_EU_ESF.png"))
     mv_bm = Image.open(os.path.join(module_path, "images", "logos", "logo_MV_BM.png"))
-    return neiss_logo, eu_fonds, eu_esf, mv_bm
+    institut = Image.open(os.path.join(module_path, "images", "logos", "institut.jpg"))
+    return neiss_logo, eu_fonds, eu_esf, mv_bm, institut
 
 
 def show_current_image():
@@ -42,8 +43,8 @@ def validate_new_hs_conf_name(hs_conf, new_name):
     if new_name is None or new_name == "":
         st.error(f'Bitte trage einen Namen in das obige Textfeld ein um dich in die Bestenliste einzutragen.')
         return -1
-    elif len(new_name)>20:
-        st.error(f'Der Name "{new_name}" ist zu lang. Bitte verwende einen Namen mit maximal 20 Zeichen.')
+    elif len(new_name)>30:
+        st.error(f'Der Name "{new_name}" ist zu lang. Bitte verwende einen Namen mit maximal 30 Zeichen.')
         return -1
     for element in hs_conf["highscore"]:
         if new_name == element[hs_attr_name]:

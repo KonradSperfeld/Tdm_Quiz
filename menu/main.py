@@ -12,8 +12,10 @@ class Main:
 
 
     def sidebar(self):
+        neiss_logo, eu_fonds, eu_esf, mv_bm, institut = load_logo_images()
         st.sidebar.latex("\\text{\large{Tag der Mathematik - 2022}}")
         st.sidebar.latex("\\text{\Huge{Quiz}}")
+        st.sidebar.image(institut)
         st.sidebar.latex("\\text{\Large{Erkennst du Deep Fakes?}}")
         logo_frame, heading_frame = st.sidebar.columns([1,2])
         #heading_frame.latex("\\text{\Huge{Quiz}}")
@@ -21,7 +23,7 @@ class Main:
 
 
 
-        neiss_logo, eu_fonds, eu_esf, mv_bm = load_logo_images()
+
 
 
 

@@ -9,6 +9,7 @@ class Highscore:
             st.session_state.quiz_current_position_finished=False
             st.session_state.quiz_time=0
             st.session_state.num_correct_answers=0
+        st.markdown("# Neues Quiz starten")
         st.button("Starte Neues Quiz",on_click=startQuiz)
         self.show_highscore()
 
@@ -30,7 +31,7 @@ class Highscore:
                 + " | "
                 + element[hs_attr_name]
                 + " | "
-                + str(element[hs_attr_correct_answers])
+                + str(element[hs_attr_correct_answers]) + "/20"
                 + " | "
                 + f'{str(element[hs_attr_time]//60)} Min. {str(element[hs_attr_time]%60)} Sek.'
             )
