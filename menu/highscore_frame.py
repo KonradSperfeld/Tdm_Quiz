@@ -11,6 +11,7 @@ class Highscore:
             st.session_state.num_correct_answers=0
         st.markdown("# Neues Quiz starten")
         st.button("Starte Neues Quiz",on_click=startQuiz)
+        st.info("Wenn du wissen willst, worauf man achten muss um echte Bilder von künstlichen Bildern unterscheiden zu können oder wie in etwa neuronale Netze funktionieren, die solche Deep Fakes erzeugen, frag uns gerne. Normalerweise sitzen wir hier mit im Raum ;-). ")
         self.show_highscore()
 
     def show_highscore(self):

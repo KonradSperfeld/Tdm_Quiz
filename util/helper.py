@@ -84,3 +84,8 @@ def get_highscore_conf():
 
 def get_highscore():
     return get_highscore_conf()[conf_attr_hs]
+
+def quit_quiz_button():
+    def quitQuiz():
+        st.session_state.quiz_running=False
+    st.button("Quiz abbrechen",on_click=quitQuiz)
