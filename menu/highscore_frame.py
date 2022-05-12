@@ -1,4 +1,5 @@
 import streamlit as st
+from util.helper import get_highscore,hs_attr_name,hs_attr_time,hs_attr_correct_answers
 
 class Highscore:
     def __init__(self):
@@ -13,4 +14,25 @@ class Highscore:
 
     def show_highscore(self):
         st.markdown("# Aktuelle Bestenliste")
-        st.write("TODO")
+        st.markdown(self.build_highscore_table_string())
+
+    def build_highscore_table_string(self):
+        highscore=get_highscore()
+        tablestring = (
+            "Platzierung | Name | Richtige Antworten | Benötigte Zeit \n -----|-----|-------|-------"
+        )
+        rank_number=0
+        for element in highscore:
+            rank_number+=1
+            tablestring+=(
+                "\n"
+                + str(rank_number)
+                + " | "
+                + element[hs_attr_name]
+                + " | "
+                + str(element[hs_attr_correct_answers])
+                + " | "
+                + f'{str(element[hs_attr_time]//60)} Min. {str(element[hs_attr_time]%60)} Sek.'
+            )
+        return tablestring
+
